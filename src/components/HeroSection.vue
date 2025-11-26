@@ -1,8 +1,10 @@
 <template>
   <header class="hero">
     <nav class="hero__nav">
-      <div class="hero__brand">
-        <img :src="logoUrl" alt="Comunica" class="hero__logo" />
+      <div class="hero__brand hero__brand--whitebg">
+        <span class="hero__brand-logo-wrap">
+          <img :src="logoUrl" alt="Comunica" class="hero__logo" />
+        </span>
         <span class="hero__brand-name">Comunica</span>
       </div>
       <a class="hero__cta" href="#experiencia">Ver experiencia</a>
@@ -101,14 +103,42 @@ import logoUrl from '../../assets/images/comunica-app-main-logo.svg';
   font-size: 1.1rem;
 }
 
-.hero__logo {
+.hero__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.hero__brand--whitebg {
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.18rem 1.1rem 0.18rem 0.18rem;
+  box-shadow: 0 2px 12px rgba(198, 40, 40, 0.08);
+}
+.hero__brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
   width: 44px;
   height: 44px;
+  box-shadow: 0 1px 6px rgba(198, 40, 40, 0.10);
+  margin-right: 0.6rem;
+}
+.hero__logo {
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 
 .hero__brand-name {
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  color: #c62828;
+  font-weight: 700;
+  font-size: 1.08rem;
 }
 
 .hero__cta {
