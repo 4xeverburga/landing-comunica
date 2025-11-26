@@ -53,4 +53,4 @@ Thumbs.db
 
 # keep local test reports, temp files, etc.
 *.tmp
-tmp/
+tmp/node_modules/
