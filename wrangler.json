@@ -1,7 +1,16 @@
 {
-  "name": "comunica-landing",
-  "compatibility_date": "2025-11-27",
-  "assets": {
-    "directory": "./dist"
-  }
+	"name": "comunica-landing",
+	"main": "worker.js",
+	"compatibility_date": "2025-11-27",
+	"assets": {
+		"directory": "./dist"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "WAITLIST_KV",
+			"id": "86cf8dcd53a04ba38f92875277eaeb96",
+			"preview_id": "8152c6293b4c4ab98c50ab7897adf0b0",
+			"remote": true
+		}
+	]
 }

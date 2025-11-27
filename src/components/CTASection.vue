@@ -13,8 +13,14 @@
           placeholder="Tu correo @univ.edu.pe"
           required
         />
-        <button type="submit">Quiero enterarme primero</button>
+        <button type="submit" :disabled="isSubmitting">
+          <span v-if="isSubmitting">Guardando…</span>
+          <span v-else>Quiero enterarme primero</span>
+        </button>
       </form>
+      <p v-if="feedbackMessage" :class="['cta__feedback', feedbackState]">
+        {{ feedbackMessage }}
+      </p>
       <span class="cta__hint">Prometemos enviar solo contenido relevante. Nada de spam.</span>
     </div>
   </section>
@@ -24,14 +30,40 @@
 import { ref } from 'vue';
 
 const email = ref('');
+const isSubmitting = ref(false);
+const feedbackMessage = ref('');
+const feedbackState = ref('');
 
-function onSubmit() {
+async function onSubmit() {
   const value = email.value.trim();
-  if (!value) {
+  if (!value || isSubmitting.value) {
     return;
   }
-  alert(`Gracias por registrarte, pronto te escribiremos a ${value}`);
-  email.value = '';
+
+  isSubmitting.value = true;
+  feedbackMessage.value = '';
+  feedbackState.value = '';
+
+  try {
+    const response = await fetch('/api/waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: value })
+    });
+
+    if (!response.ok) {
+      throw new Error('Bad response');
+    }
+
+    email.value = '';
+    feedbackMessage.value = '¡Listo! Te avisaremos apenas lancemos la beta.';
+    feedbackState.value = 'cta__feedback--success';
+  } catch (err) {
+    feedbackMessage.value = 'No pudimos guardar tu correo. Inténtalo nuevamente en unos segundos.';
+    feedbackState.value = 'cta__feedback--error';
+  } finally {
+    isSubmitting.value = false;
+  }
 }
 </script>
 
@@ -102,9 +134,31 @@ function onSubmit() {
   transform: translateY(-1px);
 }
 
+.cta__form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .cta__hint {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.7);
+}
+
+.cta__feedback {
+  margin: 0;
+  font-size: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.cta__feedback--success {
+  color: #d2ffdd;
+}
+
+.cta__feedback--error {
+  color: #ffe1df;
 }
 
 @media (max-width: 640px) {
