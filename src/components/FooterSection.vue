@@ -46,4 +46,12 @@ const currentYear = new Date().getFullYear();
   gap: 0.2rem;
   font-size: 0.9rem;
 }
+
+@media (max-width: 640px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+}
 </style>

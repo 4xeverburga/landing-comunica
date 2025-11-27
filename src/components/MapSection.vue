@@ -218,4 +218,22 @@ const pinStyle = (index) => {
     align-items: flex-start;
   }
 }
+
+@media (max-width: 640px) {
+  .map {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .map__canvas {
+    min-height: 360px;
+  }
+
+  .map__pin-card {
+    width: min(180px, 70vw);
+  }
+
+  .map__list {
+    padding: 1.25rem 1.4rem;
+  }
+}
 </style>

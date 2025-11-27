@@ -132,4 +132,18 @@ const steps = [
 .flow-card__details li {
   line-height: 1.5;
 }
+
+@media (max-width: 640px) {
+  .flow {
+    margin: 2.5rem auto;
+  }
+
+  .flow__intro {
+    text-align: center;
+  }
+
+  .flow-card {
+    padding: 1.25rem 1.4rem;
+  }
+}
 </style>

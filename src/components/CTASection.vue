@@ -71,28 +71,31 @@ function onSubmit() {
 
 .cta__form input {
   flex: 1 1 280px;
-  border-radius: 999px;
+  border-radius: 16px;
   border: none;
-  padding: 0.8rem 1.2rem;
+  padding: 0.85rem 1.2rem;
   font-size: 1rem;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(198, 40, 40, 0.15), 0 8px 20px rgba(198, 40, 40, 0.18);
+  background: #ffffff;
+  color: #1f1f24;
+  min-height: 52px;
 }
 
 .cta__form input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(31, 31, 36, 0.6);
 }
 
 .cta__form button {
-  border-radius: 999px;
+  border-radius: 16px;
   border: none;
-  padding: 0.85rem 1.8rem;
+  padding: 0.95rem 1.8rem;
   font-weight: 600;
   background: #ffffff;
   color: #c62828;
   cursor: pointer;
   transition: transform 0.2s ease;
+  min-height: 52px;
+  box-shadow: 0 10px 26px rgba(198, 40, 40, 0.22);
 }
 
 .cta__form button:hover {
@@ -104,13 +107,24 @@ function onSubmit() {
   color: rgba(255, 255, 255, 0.7);
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
+  .cta {
+    margin: 2.25rem 1rem;
+    padding: 2rem 1.5rem;
+  }
+
   .cta__form {
     flex-direction: column;
   }
 
+  .cta__form input,
   .cta__form button {
     width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .cta__hint {
+    text-align: center;
   }
 }
 </style>

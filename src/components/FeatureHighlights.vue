@@ -78,4 +78,18 @@ import { features } from '../data/features.js';
   color: var(--text-secondary);
   line-height: 1.5;
 }
+
+@media (max-width: 640px) {
+  .features {
+    margin: 2.5rem auto;
+  }
+
+  .features__intro {
+    text-align: center;
+  }
+
+  .feature-card {
+    padding: 1.25rem;
+  }
+}
 </style>

@@ -93,6 +93,7 @@ import logoUrl from '../../assets/images/comunica-app-main-logo.svg';
   position: relative;
   z-index: 1;
   margin-bottom: clamp(2rem, 3vw, 3.5rem);
+  gap: 1rem;
 }
 
 .hero__brand {
@@ -147,6 +148,7 @@ import logoUrl from '../../assets/images/comunica-app-main-logo.svg';
   padding-bottom: 0.25rem;
   font-weight: 500;
   transition: opacity 0.2s ease;
+  white-space: nowrap;
 }
 
 .hero__cta:hover {
@@ -371,10 +373,68 @@ import logoUrl from '../../assets/images/comunica-app-main-logo.svg';
 
   .hero__content {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .hero__visual {
     order: -1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero {
+    padding: 1.75rem 1.25rem 2.6rem;
+  }
+
+  .hero__nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__brand--whitebg {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero__cta {
+    border: none;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .hero__text h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__button {
+    width: 100%;
+  }
+
+  .hero__pill {
+    font-size: 0.85rem;
+  }
+
+  .mockup {
+    width: min(320px, 100%);
+    padding: 1rem 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero__text h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero__button {
+    padding: 0.7rem 1rem;
   }
 }
 </style>
